@@ -1,0 +1,28 @@
+[
+  {
+    "name": "BronzeImpressions",
+    "path": "/Tables",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/BronzeImpressions",
+        "itemId": "6faa77a5-401c-a9f9-464b-7fcc4d58e5f3",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "artifactType": "KustoDatabase"
+      }
+    }
+  },
+  {
+    "name": "BronzeClicks",
+    "path": "/Tables",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/BronzeClicks",
+        "itemId": "6faa77a5-401c-a9f9-464b-7fcc4d58e5f3",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "artifactType": "KustoDatabase"
+      }
+    }
+  }
+]
