@@ -1,5 +1,5 @@
 {
-  "schema_version": 67,
+  "schema_version": 68,
   "tiles": [
     {
       "id": "78875dcc-7b0d-4505-91c9-b656ee872af2",
@@ -10,7 +10,7 @@
         "x": 12,
         "y": 0,
         "width": 10,
-        "height": 8
+        "height": 6
       },
       "queryRef": {
         "kind": "query",
@@ -51,9 +51,9 @@
       "visualType": "area",
       "pageId": "23156430-9736-4b37-bccd-7fee8134393d",
       "layout": {
-        "x": 20,
-        "y": 8,
-        "width": 4,
+        "x": 14,
+        "y": 6,
+        "width": 8,
         "height": 6
       },
       "queryRef": {
@@ -82,10 +82,10 @@
         "seriesColumns": null,
         "xAxisScale": "linear",
         "verticalLine": "",
-        "crossFilter": [],
         "crossFilterDisabled": false,
         "drillthroughDisabled": false,
         "forceAxisTicks": false,
+        "crossFilter": [],
         "drillthrough": []
       }
     },
@@ -95,10 +95,10 @@
       "visualType": "map",
       "pageId": "23156430-9736-4b37-bccd-7fee8134393d",
       "layout": {
-        "x": 10,
-        "y": 14,
-        "width": 11,
-        "height": 8
+        "x": 0,
+        "y": 6,
+        "width": 8,
+        "height": 10
       },
       "queryRef": {
         "kind": "query",
@@ -120,8 +120,8 @@
       "visualType": "timechart",
       "pageId": "23156430-9736-4b37-bccd-7fee8134393d",
       "layout": {
-        "x": 14,
-        "y": 8,
+        "x": 8,
+        "y": 6,
         "width": 6,
         "height": 6
       },
@@ -151,10 +151,10 @@
         "seriesColumns": null,
         "xAxisScale": "linear",
         "verticalLine": "",
-        "crossFilter": [],
         "crossFilterDisabled": false,
         "drillthroughDisabled": false,
         "forceAxisTicks": false,
+        "crossFilter": [],
         "drillthrough": []
       }
     },
@@ -167,7 +167,7 @@
         "x": 3,
         "y": 0,
         "width": 3,
-        "height": 8
+        "height": 6
       },
       "queryRef": {
         "kind": "query",
@@ -189,7 +189,7 @@
         "x": 6,
         "y": 0,
         "width": 3,
-        "height": 8
+        "height": 6
       },
       "queryRef": {
         "kind": "query",
@@ -211,7 +211,7 @@
         "x": 9,
         "y": 0,
         "width": 3,
-        "height": 8
+        "height": 6
       },
       "queryRef": {
         "kind": "query",
@@ -230,10 +230,10 @@
       "visualType": "timechart",
       "pageId": "23156430-9736-4b37-bccd-7fee8134393d",
       "layout": {
-        "x": 10,
-        "y": 22,
-        "width": 11,
-        "height": 7
+        "x": 8,
+        "y": 12,
+        "width": 6,
+        "height": 4
       },
       "queryRef": {
         "kind": "query",
@@ -261,10 +261,10 @@
         "seriesColumns": null,
         "xAxisScale": "linear",
         "verticalLine": "",
-        "crossFilter": [],
         "crossFilterDisabled": false,
         "drillthroughDisabled": false,
         "forceAxisTicks": false,
+        "crossFilter": [],
         "drillthrough": []
       }
     },
@@ -274,10 +274,10 @@
       "visualType": "table",
       "pageId": "23156430-9736-4b37-bccd-7fee8134393d",
       "layout": {
-        "x": 0,
-        "y": 15,
-        "width": 10,
-        "height": 7
+        "x": 14,
+        "y": 12,
+        "width": 8,
+        "height": 4
       },
       "queryRef": {
         "kind": "query",
@@ -286,9 +286,9 @@
       "visualOptions": {
         "table__enableRenderLinks": true,
         "colorRulesDisabled": true,
-        "crossFilter": [],
         "crossFilterDisabled": false,
         "drillthroughDisabled": false,
+        "crossFilter": [],
         "drillthrough": [],
         "table__renderLinks": [],
         "colorRules": []
@@ -303,9 +303,9 @@
         "x": 0,
         "y": 0,
         "width": 3,
-        "height": 8
+        "height": 6
       },
-      "markdownText": "//Logo (Markdown Text Tile)\n![AdventureWorks](https://vikasrajput.github.io/resources/PBIRptDev/AdventureWorksLogo.jpg \"AdventureWorks\")",
+      "markdownText": "![AdventureWorks](https://vikasrajput.github.io/resources/PBIRptDev/AdventureWorksLogo.jpg \"AdventureWorks\")",
       "visualOptions": {}
     }
   ],
@@ -331,12 +331,12 @@
   "dataSources": [
     {
       "kind": "kusto-trident",
-      "scopeId": "kusto-trident",
+      "id": "f5407575-ab44-4c34-9fbc-121c76f93795",
+      "name": "WebEvents_EH",
       "clusterUri": "",
       "database": "01bb332d-cc0d-943b-4572-bb5954a2ed4e",
-      "name": "WebEvents_EH",
-      "id": "f5407575-ab44-4c34-9fbc-121c76f93795",
-      "workspace": "00000000-0000-0000-0000-000000000000"
+      "workspace": "00000000-0000-0000-0000-000000000000",
+      "scopeId": "kusto-trident"
     }
   ],
   "pages": [
