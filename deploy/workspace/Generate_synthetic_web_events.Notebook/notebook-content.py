@@ -34,8 +34,31 @@ import random
 
 from random import randrange
 
-eventHubNameevents = "es_3b467569-0b1e-4321-b4c7-021a64473207"
-eventHubConnString = "" 
+# Get connection string for a given Eventstream
+def get_eventstream_connection_string(eventstream_name, eventstream_source_name):
+    workspace_id = fabric.resolve_workspace_id()
+    
+    #Get Eventstream Id
+    eventstream_id = fabric.resolve_item_id(eventstream_name)
+    
+    # Get Source Id
+    client = fabric.FabricRestClient()
+    url = f"v1/workspaces/{workspace_id}/eventstreams/{eventstream_id}/topology"
+    response = client.get(url)
+    for src in response.json().get("sources", []):
+        if src.get("name") == eventstream_source_name and src.get("type") == "CustomEndpoint":
+            eventstream_source_id = src.get("id")
+
+    # Get connection string
+    url = f"v1/workspaces/{workspace_id}/eventstreams/{eventstream_id}/sources/{eventstream_source_id}/connection"
+    response = client.get(url)
+    eventstream_connection_string = response.json()['accessKeys']['primaryConnectionString']
+    return eventstream_connection_string
+
+eventHubConnString = get_eventstream_connection_string(
+        eventstream_name="Webevents_ES", 
+        eventstream_source_name="WebEventsCustomSource"
+    )
 
 producer_events = EventHubProducerClient.from_connection_string(conn_str=eventHubConnString, eventhub_name=eventHubNameevents)
 
