@@ -15,7 +15,7 @@
       "properties": {
         "dataIngestionMode": "ProcessedIngestion",
         "workspaceId": "00000000-0000-0000-0000-000000000000",
-        "itemId": "6faa77a5-401c-a9f9-464b-7fcc4d58e5f3",
+        "itemId": "01bb332d-cc0d-943b-4572-bb5954a2ed4e",
         "databaseName": "WebEvents_EH",
         "tableName": "BronzeClicks",
         "inputSerialization": {
@@ -150,7 +150,7 @@
       "properties": {
         "dataIngestionMode": "ProcessedIngestion",
         "workspaceId": "00000000-0000-0000-0000-000000000000",
-        "itemId": "6faa77a5-401c-a9f9-464b-7fcc4d58e5f3",
+        "itemId": "01bb332d-cc0d-943b-4572-bb5954a2ed4e",
         "databaseName": "WebEvents_EH",
         "tableName": "BronzeImpressions",
         "inputSerialization": {

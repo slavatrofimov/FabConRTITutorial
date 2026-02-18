@@ -4,7 +4,7 @@
     "dataSources": [
       {
         "id": "8a0fc14b-379a-419a-973a-0ba2a87fda3a",
-        "clusterUri": "https://trd-wxh8u6p4wesf31c4q2.z0.kusto.fabric.microsoft.com",
+        "clusterUri": "https://trd-nx8842p04m832sbjmh.z1.kusto.fabric.microsoft.com",
         "type": "Fabric",
         "databaseItemId": "4d58e5f3-7fcc-464b-a9f9-401c6faa77a5",
         "databaseItemName": "WebEvents_EH"

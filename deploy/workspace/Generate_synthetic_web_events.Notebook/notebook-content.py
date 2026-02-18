@@ -31,6 +31,7 @@ from azure.eventhub import EventHubProducerClient, EventData
 import os
 import socket
 import random
+import sempy.fabric as fabric
 
 from random import randrange
 
@@ -60,7 +61,7 @@ eventHubConnString = get_eventstream_connection_string(
         eventstream_source_name="WebEventsCustomSource"
     )
 
-producer_events = EventHubProducerClient.from_connection_string(conn_str=eventHubConnString, eventhub_name=eventHubNameevents)
+producer_events = EventHubProducerClient.from_connection_string(conn_str=eventHubConnString)
 
 hostname = socket.gethostname()
 
@@ -209,7 +210,7 @@ def generateClickEvent(impressionEvent, isAnomaly):
 
 def sendToEventsHub(jsonEvent, producer):
     eventString = json.dumps(jsonEvent)
-    print(eventString) 
+    # print(eventString) 
     event_data_batch = producer.create_batch() 
     event_data_batch.add(EventData(eventString)) 
     producer.send_batch(event_data_batch)

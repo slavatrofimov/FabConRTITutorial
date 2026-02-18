@@ -333,7 +333,7 @@
       "kind": "kusto-trident",
       "scopeId": "kusto-trident",
       "clusterUri": "",
-      "database": "6faa77a5-401c-a9f9-464b-7fcc4d58e5f3",
+      "database": "01bb332d-cc0d-943b-4572-bb5954a2ed4e",
       "name": "WebEvents_EH",
       "id": "f5407575-ab44-4c34-9fbc-121c76f93795",
       "workspace": "00000000-0000-0000-0000-000000000000"

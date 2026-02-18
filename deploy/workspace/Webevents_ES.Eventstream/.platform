@@ -2,10 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
     "type": "Eventstream",
-    "displayName": "Webevents_ES"
+    "displayName": "Webevents_ES",
+    "description": ""
   },
   "config": {
     "version": "2.0",
-    "logicalId": "96e51a2c-5530-9b24-4e49-10d45b12c981"
+    "logicalId": "7faf5f59-a74e-bb7e-4a02-b6a3d048a4b0"
   }
 }
