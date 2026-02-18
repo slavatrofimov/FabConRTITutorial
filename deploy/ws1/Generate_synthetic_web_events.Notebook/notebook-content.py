@@ -210,7 +210,7 @@ def generateClickEvent(impressionEvent, isAnomaly):
 
 def sendToEventsHub(jsonEvent, producer):
     eventString = json.dumps(jsonEvent)
-    print(eventString) 
+    # print(eventString) 
     event_data_batch = producer.create_batch() 
     event_data_batch.add(EventData(eventString)) 
     producer.send_batch(event_data_batch)

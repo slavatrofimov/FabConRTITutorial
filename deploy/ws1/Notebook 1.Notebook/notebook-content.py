@@ -8,12 +8,12 @@
 # META   },
 # META   "dependencies": {
 # META     "lakehouse": {
-# META       "default_lakehouse": "e4957ca1-b064-4d0e-906d-677c7c396cba",
-# META       "default_lakehouse_name": "WebSalesData_LH",
+# META       "default_lakehouse": "3b150029-cf4b-4d63-b037-76a31150cc33",
+# META       "default_lakehouse_name": "test1",
 # META       "default_lakehouse_workspace_id": "ff045177-ec4d-4450-a7c8-66ade2c2b74e",
 # META       "known_lakehouses": [
 # META         {
-# META           "id": "e4957ca1-b064-4d0e-906d-677c7c396cba"
+# META           "id": "3b150029-cf4b-4d63-b037-76a31150cc33"
 # META         }
 # META       ]
 # META     }
@@ -22,29 +22,21 @@
 
 # CELL ********************
 
-Files
-
-# METADATA ********************
-
-# META {
-# META   "language": "python",
-# META   "language_group": "synapse_pyspark"
-# META }
-
-# CELL ********************
-
-df = spark.read.format("csv").option("header","true").load("Files/products.csv")
-# df now is a Spark DataFrame containing CSV data from "Files/products.csv".
+df = spark.sql("SELECT * FROM `ST-RTITutorial01`.WebSalesData_LH.products LIMIT 1000")
 display(df)
 
+# METADATA ********************
 
-abfss://ff045177-ec4d-4450-a7c8-66ade2c2b74e@onelake.dfs.fabric.microsoft.com/e4957ca1-b064-4d0e-906d-677c7c396cba/Files/products.csv
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
 
+# CELL ********************
 
-/lakehouse/default/Files/products.csv
-
-
-
+# With Spark SQL, Please run the query onto the lakehouse which is from the same workspace as the current default lakehouse.
+df = spark.sql("SELECT * FROM `Grid Intelligence 05`.ReferenceDataLH.feeders LIMIT 1000")
+display(df)
 
 # METADATA ********************
 
@@ -55,7 +47,9 @@ abfss://ff045177-ec4d-4450-a7c8-66ade2c2b74e@onelake.dfs.fabric.microsoft.com/e4
 
 # CELL ********************
 
-notebookutils.data.spark.read
+# With Spark SQL, Please run the query onto the lakehouse which is from the same workspace as the current default lakehouse.
+df = spark.sql("UPDATE `Grid Intelligence 05`.ReferenceDataLH.feeders SET scada_monitored = scada_monitored")
+display(df)
 
 # METADATA ********************
 
@@ -66,9 +60,82 @@ notebookutils.data.spark.read
 
 # CELL ********************
 
-df = spark.read.format("csv").option("header","true").load("/lakehouse/WebSalesData_LH/Files/products.csv")
-df.display()
+# With Spark SQL, Please run the query onto the lakehouse which is from the same workspace as the current default lakehouse.
+df = spark.sql("CREATE TABLE `ST-RTITutorial01`.WebSalesData_LH.feeders AS SELECT * FROM `Grid Intelligence 05`.ReferenceDataLH.feeders LIMIT 1000")
+display(df)
 
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
+# CELL ********************
+
+# With Spark SQL, Please run the query onto the lakehouse which is from the same workspace as the current default lakehouse.
+df = spark.sql("CREATE TABLE `Grid Intelligence 05`.SchemaTest.dbo.feeders3 AS SELECT * FROM `ST-RTITutorial01`.WebSalesData_LH.feeders LIMIT 1000")
+display(df)
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
+# CELL ********************
+
+
+import pyodbc
+import pandas as pd
+import json
+
+connection_id = '9bc22582-a2ca-462e-ac0b-df4be84dbf0f' # connection name: "AKVReferenceTest"
+connectionCredentials = notebookutils.connections.getCredential(connection_id)
+credential_dict = json.loads(connectionCredentials['credential'])
+user_name = next(item['value'] for item in credential_dict['credentialData'] if item['name'] == 'username')
+pwd = next(item['value'] for item in credential_dict['credentialData'] if item['name'] == 'password')
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
+# CELL ********************
+
+print(f"{user_name}{pwd}")
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
+# CELL ********************
+
+server_name = 'st-sqldemos.database.windows.net'
+database_name = 'sqldb_AdventureWorks'
+
+conn = pyodbc.connect(
+    f"DRIVER={{ODBC Driver 18 for SQL Server}};"
+    f"SERVER={server_name};"
+    f"DATABASE={database_name};"
+    f"UID={user_name};"
+    f"PWD={pwd}"
+)
+cursor = conn.cursor()
+
+query = f"SELECT 1 AS MyNumber"
+df = pd.read_sql_query(query, conn)
+
+display(df)
+
+cursor.close()
+conn.close()
 
 
 

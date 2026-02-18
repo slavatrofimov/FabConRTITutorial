@@ -68,7 +68,7 @@ launcher = FabricLauncher(notebookutils,
 
 # Deploy solution with data folders
 launcher.download_and_deploy(
-    repo_owner="slavatrofimov",
+    repo_owner="microsoft",
     repo_name="FabConRTITutorial",
     branch = "automate-deployment",
     workspace_folder="deploy/workspace",
@@ -195,31 +195,91 @@ for table in tables:
 # META   "language_group": "jupyter_python"
 # META }
 
-# CELL ********************
-
-# Execute a KQL Query to load data into the MeterContextualization table
-from fabric_launcher.post_deployment_utils import (
-    get_kusto_query_uri,
-    exec_kql_command
-)
-
-kusto_query_uri = get_kusto_query_uri(target_workspace_id, target_eventhouse_name, client)
-kql_command = f""".set-or-replace MeterContextualization <| MeterContextualizationFunction()"""
-exec_kql_command(kusto_query_uri, target_kql_db_name, kql_command, notebookutils)
-print('✅ Loaded data into the MeterContextualiazation table')
-
-# METADATA ********************
-
-# META {
-# META   "language": "python",
-# META   "language_group": "jupyter_python"
-# META }
-
 # MARKDOWN ********************
 
-# ## Next Steps
-# Your automated solution deploymnet is complete!
+# ## Manual Post-Deployment Steps
+# Your solution deploymnet is almost complete!
 # 
 # ⚠️ Please be sure to refresh your browser window to reflect all newly-deployed items!
 # 
-# Review the README document for details on running simulations and exploring your solution.
+# Then, please complete the following post-deployment steps that must be performed manually.
+
+# MARKDOWN ********************
+
+# ### 1. Enable OneLake Availability
+# 
+# This feature is also called **"one logical copy"** and it automatically allows KQL Database tables to be accessed from a Lakehouse, Notebooks, etc in delta-parquet format via OneLake.
+# 
+# When activated it will constantly copy the KQL data to your Fabric OneLake in delta format. It allows you to query KQL Database tables as delta tables using Spark or SQL endpoint on the Lakehouse. We recommend enabling this feature "before" we load the more data into our KQL Database. Also, consider this feature can be enabled/disabled per table if necessary. You can read more about this feature here: [Announcing Delta Lake support in Real-Time Intelligence KQL Database](https://support.fabric.microsoft.com/blog/announcing-delta-support-in-real-time-analytics-kql-db?ft=All).
+# 
+# ![alt text](https://raw.githubusercontent.com/microsoft/FabConRTITutorial/refs/heads/main/docs/assets/fabrta70.png)
+# 
+# #### Here's how to set this up
+# 
+# 1. When an Eventhouse is created, a KQL Database with the same name is created as well. To open the KQL Database click on the Database **WebEvents_EH** in the section **KQL Databases**.
+# 
+#    ![alt text](https://raw.githubusercontent.com/microsoft/FabConRTITutorial/refs/heads/main/docs/assets/image_task04_step01.png)
+# 
+# 2. After selecting the KQL Database click on the switch **availibility** to activate the OneLake availibility as shown in the screenshot.
+# 
+#    ![alt text](https://raw.githubusercontent.com/microsoft/FabConRTITutorial/refs/heads/main/docs/assets/image_task04_step02.png)
+# 
+#    <div class="info" data-title="Note">
+# 
+#    > **Newly created tables will automatically inherit the "OneLake availability" setting from the Database level**
+# 
+#    </div>
+# 
+# 3. Now the dialog **Turn on OneLake availibility** is shown. Ensure that **Apply to existing tables** is checked and click on the button **Turn on**.
+# 
+#    ![alt text](https://raw.githubusercontent.com/microsoft/FabConRTITutorial/refs/heads/main/docs/assets/image_task04_step03.png)
+
+
+# MARKDOWN ********************
+
+# ### 2. Accessing Eventhouse data from the lakehouse
+# 
+# In this task we will make the Eventhouse tables form the KQL Database available in our Lakehouse. This will be accomplished by creating _shortcuts_.
+# 
+# 1. Click on the button **Get data** in the menu bar at the top. Choose **New shortcut** from the dropdown menu.
+# 
+#    ![alt text](https://raw.githubusercontent.com/microsoft/FabConRTITutorial/refs/heads/main/docs/assets/image_task11_step01.png)
+# 
+#    <div class="important" data-title="Note">
+# 
+#    > If your Lakehouse is using Schemas you will see the schema **dbo** under the folder **Tables**. right-click the schema **dbo** and select the option **New table shortcut** from the context menu.
+# 
+#    </div>
+# 
+# 2. Select Microsoft OneLake.
+# 
+#    ![alt text](https://raw.githubusercontent.com/microsoft/FabConRTITutorial/refs/heads/main/docs/assets/image_task11_step02.png)
+# 
+# 3. Select the KQL Database **WebEvents_EH** in the Window **Select a data source type** and click on the button **Next**.
+# 
+#    ![alt text](https://raw.githubusercontent.com/microsoft/FabConRTITutorial/refs/heads/main/docs/assets/image_task11_step03.png)
+# 
+# 4. Expand the folder **Tables** under **WebEvents_EH** in the window **New shortcut** and check both tables **BronzeClicks** and **BronzeImpressions**. Click on **Next**.
+# 
+#    ![alt text](https://raw.githubusercontent.com/microsoft/FabConRTITutorial/refs/heads/main/docs/assets/image_task11_step04.png)
+# 
+#    <div class="info" data-title="Note">
+# 
+#    > You may return to this step to create additional shortcuts, after running the [createAll.kql](https://github.com/microsoft/FabConRTITutorial/blob/main/kql/createAll.kql) database script which will create additional tables. For now, you may proceed by selecting just the **BronzeClicks** and **BronzeImpressions** tables.
+# 
+#    </div>
+# 
+# 5. Click on the button **Create**.
+# 
+#    ![alt text](https://raw.githubusercontent.com/microsoft/FabConRTITutorial/refs/heads/main/docs/assets/image_task11_step05.png)
+# 
+#    Now you can see the shortcuts to the tables **BronzeClicks** and **BronzeImpressions** under the folder **Tables** in the lakehouse **WebSalesData_LH**.
+# 
+#    ![alt text](https://raw.githubusercontent.com/microsoft/FabConRTITutorial/refs/heads/main/docs/assets/image_task11_step05b.png)
+# 
+#    <div class="info" data-title="Note">
+# 
+#    > Note that the shortcuts have another icon than the regular delta tables.
+# 
+#    </div>
+
