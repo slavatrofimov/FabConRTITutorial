@@ -1,0 +1,458 @@
+{
+  "schema_version": 67,
+  "tiles": [
+    {
+      "id": "78875dcc-7b0d-4505-91c9-b656ee872af2",
+      "title": "Click by hour",
+      "visualType": "area",
+      "pageId": "23156430-9736-4b37-bccd-7fee8134393d",
+      "layout": {
+        "x": 12,
+        "y": 0,
+        "width": 10,
+        "height": 8
+      },
+      "queryRef": {
+        "kind": "query",
+        "queryId": "1183c164-07e5-4636-bd48-285818c2b234"
+      },
+      "visualOptions": {
+        "multipleYAxes": {
+          "base": {
+            "id": "-1",
+            "label": "",
+            "columns": [],
+            "yAxisMaximumValue": null,
+            "yAxisMinimumValue": null,
+            "yAxisScale": "linear",
+            "horizontalLines": []
+          },
+          "additional": [],
+          "showMultiplePanels": false
+        },
+        "hideLegend": false,
+        "legendLocation": "bottom",
+        "xColumnTitle": "",
+        "xColumn": null,
+        "yColumns": null,
+        "seriesColumns": null,
+        "xAxisScale": "linear",
+        "verticalLine": "",
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "forceAxisTicks": false,
+        "crossFilter": [],
+        "drillthrough": []
+      }
+    },
+    {
+      "id": "888326c0-900e-4308-8a8e-02282f9a9c67",
+      "title": "Impressions by hour",
+      "visualType": "area",
+      "pageId": "23156430-9736-4b37-bccd-7fee8134393d",
+      "layout": {
+        "x": 20,
+        "y": 8,
+        "width": 4,
+        "height": 6
+      },
+      "queryRef": {
+        "kind": "query",
+        "queryId": "d7721321-c3e4-4c8d-a059-306697c6a724"
+      },
+      "visualOptions": {
+        "multipleYAxes": {
+          "base": {
+            "id": "-1",
+            "label": "",
+            "columns": [],
+            "yAxisMaximumValue": null,
+            "yAxisMinimumValue": null,
+            "yAxisScale": "linear",
+            "horizontalLines": []
+          },
+          "additional": [],
+          "showMultiplePanels": false
+        },
+        "hideLegend": false,
+        "legendLocation": "bottom",
+        "xColumnTitle": "",
+        "xColumn": null,
+        "yColumns": null,
+        "seriesColumns": null,
+        "xAxisScale": "linear",
+        "verticalLine": "",
+        "crossFilter": [],
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "forceAxisTicks": false,
+        "drillthrough": []
+      }
+    },
+    {
+      "id": "ffd9186e-ca21-4abd-97fa-bbd4a5e8c88a",
+      "title": "Impressions by location",
+      "visualType": "map",
+      "pageId": "23156430-9736-4b37-bccd-7fee8134393d",
+      "layout": {
+        "x": 10,
+        "y": 14,
+        "width": 11,
+        "height": 8
+      },
+      "queryRef": {
+        "kind": "query",
+        "queryId": "6e4a6831-1f97-4aef-80e1-85b85b1fc3c5"
+      },
+      "visualOptions": {
+        "map__latitudeColumn": null,
+        "map__longitudeColumn": null,
+        "map__labelColumn": null,
+        "map__sizeColumn": null,
+        "map__sizeDisabled": true,
+        "map__geoType": "infer",
+        "map__geoPointColumn": null
+      }
+    },
+    {
+      "id": "e5687dd7-0931-4a89-a42d-186256ad9c13",
+      "title": "Average Page Load time",
+      "visualType": "timechart",
+      "pageId": "23156430-9736-4b37-bccd-7fee8134393d",
+      "layout": {
+        "x": 14,
+        "y": 8,
+        "width": 6,
+        "height": 6
+      },
+      "queryRef": {
+        "kind": "query",
+        "queryId": "ac0449c8-24a6-4329-b0c2-cc83364b0bd2"
+      },
+      "visualOptions": {
+        "multipleYAxes": {
+          "base": {
+            "id": "-1",
+            "label": "",
+            "columns": [],
+            "yAxisMaximumValue": null,
+            "yAxisMinimumValue": null,
+            "yAxisScale": "linear",
+            "horizontalLines": []
+          },
+          "additional": [],
+          "showMultiplePanels": false
+        },
+        "hideLegend": false,
+        "legendLocation": "bottom",
+        "xColumnTitle": "",
+        "xColumn": null,
+        "yColumns": null,
+        "seriesColumns": null,
+        "xAxisScale": "linear",
+        "verticalLine": "",
+        "crossFilter": [],
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "forceAxisTicks": false,
+        "drillthrough": []
+      }
+    },
+    {
+      "id": "37c274c9-8fc3-416c-82f9-e7e49d1e519c",
+      "title": "Impressions",
+      "visualType": "card",
+      "pageId": "23156430-9736-4b37-bccd-7fee8134393d",
+      "layout": {
+        "x": 3,
+        "y": 0,
+        "width": 3,
+        "height": 8
+      },
+      "queryRef": {
+        "kind": "query",
+        "queryId": "f629a3ce-5218-47b6-9217-768085914be3"
+      },
+      "visualOptions": {
+        "multiStat__textSize": "auto",
+        "multiStat__valueColumn": "impressions",
+        "colorRulesDisabled": false,
+        "colorRules": []
+      }
+    },
+    {
+      "id": "65d28a07-f2a1-49a0-9b7d-39c1531d5c38",
+      "title": "Clicks",
+      "visualType": "card",
+      "pageId": "23156430-9736-4b37-bccd-7fee8134393d",
+      "layout": {
+        "x": 6,
+        "y": 0,
+        "width": 3,
+        "height": 8
+      },
+      "queryRef": {
+        "kind": "query",
+        "queryId": "52a3faa3-820c-4152-8881-117c6f83a6e3"
+      },
+      "visualOptions": {
+        "multiStat__textSize": "auto",
+        "multiStat__valueColumn": "clicks",
+        "colorRulesDisabled": false,
+        "colorRules": []
+      }
+    },
+    {
+      "id": "97fd8aac-9926-455f-9cf7-91c11077640f",
+      "title": "Click Through Rate",
+      "visualType": "card",
+      "pageId": "23156430-9736-4b37-bccd-7fee8134393d",
+      "layout": {
+        "x": 9,
+        "y": 0,
+        "width": 3,
+        "height": 8
+      },
+      "queryRef": {
+        "kind": "query",
+        "queryId": "74816b6b-649c-42e8-81ee-f1997bec26c7"
+      },
+      "visualOptions": {
+        "multiStat__textSize": "auto",
+        "multiStat__valueColumn": "CTR",
+        "colorRulesDisabled": false,
+        "colorRules": []
+      }
+    },
+    {
+      "id": "d6f9d655-ea23-4d61-a790-9d128b245c66",
+      "title": "Page Load time Anomalies",
+      "visualType": "timechart",
+      "pageId": "23156430-9736-4b37-bccd-7fee8134393d",
+      "layout": {
+        "x": 10,
+        "y": 22,
+        "width": 11,
+        "height": 7
+      },
+      "queryRef": {
+        "kind": "query",
+        "queryId": "f0238562-12ba-4076-9b9f-298b47d8bb55"
+      },
+      "visualOptions": {
+        "multipleYAxes": {
+          "base": {
+            "id": "-1",
+            "label": "",
+            "columns": [],
+            "yAxisMaximumValue": null,
+            "yAxisMinimumValue": null,
+            "yAxisScale": "linear",
+            "horizontalLines": []
+          },
+          "additional": [],
+          "showMultiplePanels": false
+        },
+        "hideLegend": false,
+        "legendLocation": "bottom",
+        "xColumnTitle": "",
+        "xColumn": null,
+        "yColumns": null,
+        "seriesColumns": null,
+        "xAxisScale": "linear",
+        "verticalLine": "",
+        "crossFilter": [],
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "forceAxisTicks": false,
+        "drillthrough": []
+      }
+    },
+    {
+      "id": "4aea6d97-3d5a-4e85-937b-78294a79edb8",
+      "title": "Strong Anomalies",
+      "visualType": "table",
+      "pageId": "23156430-9736-4b37-bccd-7fee8134393d",
+      "layout": {
+        "x": 0,
+        "y": 15,
+        "width": 10,
+        "height": 7
+      },
+      "queryRef": {
+        "kind": "query",
+        "queryId": "eccb5eed-eb40-4a17-9add-5d4c9fcb6e3c"
+      },
+      "visualOptions": {
+        "table__enableRenderLinks": true,
+        "colorRulesDisabled": true,
+        "crossFilter": [],
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "drillthrough": [],
+        "table__renderLinks": [],
+        "colorRules": []
+      }
+    },
+    {
+      "id": "72c50f06-b203-46f9-b869-c3ceb1941cf7",
+      "title": "New tile",
+      "visualType": "markdownCard",
+      "pageId": "23156430-9736-4b37-bccd-7fee8134393d",
+      "layout": {
+        "x": 0,
+        "y": 0,
+        "width": 3,
+        "height": 8
+      },
+      "markdownText": "//Logo (Markdown Text Tile)\n![AdventureWorks](https://vikasrajput.github.io/resources/PBIRptDev/AdventureWorksLogo.jpg \"AdventureWorks\")",
+      "visualOptions": {}
+    }
+  ],
+  "baseQueries": [],
+  "parameters": [
+    {
+      "kind": "duration",
+      "id": "f679985f-8ed4-45a5-8931-1040c806b725",
+      "displayName": "Time range",
+      "description": "",
+      "beginVariableName": "_startTime",
+      "endVariableName": "_endTime",
+      "defaultValue": {
+        "kind": "dynamic",
+        "count": 7,
+        "unit": "days"
+      },
+      "showOnPages": {
+        "kind": "all"
+      }
+    }
+  ],
+  "dataSources": [
+    {
+      "kind": "kusto-trident",
+      "scopeId": "kusto-trident",
+      "clusterUri": "",
+      "database": "01bb332d-cc0d-943b-4572-bb5954a2ed4e",
+      "name": "WebEvents_EH",
+      "id": "f5407575-ab44-4c34-9fbc-121c76f93795",
+      "workspace": "00000000-0000-0000-0000-000000000000"
+    }
+  ],
+  "pages": [
+    {
+      "name": "Page 1",
+      "id": "23156430-9736-4b37-bccd-7fee8134393d"
+    }
+  ],
+  "queries": [
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "f5407575-ab44-4c34-9fbc-121c76f93795"
+      },
+      "text": "//Clicks by hour\nSilverClicks\n| where eventDate between (_startTime.._endTime)\n| summarize date_count = count() by bin(eventDate, 1h)\n| render timechart\n| top 30 by date_count",
+      "id": "1183c164-07e5-4636-bd48-285818c2b234",
+      "usedVariables": [
+        "_endTime",
+        "_startTime"
+      ]
+    },
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "f5407575-ab44-4c34-9fbc-121c76f93795"
+      },
+      "text": "  //Impressions by hour\n  SilverImpressions\n  | where eventDate between (_startTime.._endTime)\n  | summarize date_count = count() by bin(eventDate, 1h)\n  | render timechart\n  | top 30 by date_count",
+      "id": "d7721321-c3e4-4c8d-a059-306697c6a724",
+      "usedVariables": [
+        "_endTime",
+        "_startTime"
+      ]
+    },
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "f5407575-ab44-4c34-9fbc-121c76f93795"
+      },
+      "text": "//Impressions by location\nSilverImpressions\n| where eventDate  between (_startTime.._endTime)\n| join external_table('products') on $left.productId == $right.ProductID\n| project lon = toreal(geo_info_from_ip_address(ip_address).longitude), lat = toreal(geo_info_from_ip_address(ip_address).latitude), Name\n| render scatterchart with (kind = map) //, xcolumn=lon, ycolumns=lat)",
+      "id": "6e4a6831-1f97-4aef-80e1-85b85b1fc3c5",
+      "usedVariables": [
+        "_endTime",
+        "_startTime"
+      ]
+    },
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "f5407575-ab44-4c34-9fbc-121c76f93795"
+      },
+      "text": "//Average Page Load time\nSilverImpressions\n| where eventDate   between (_startTime.._endTime)\n//| summarize average_loadtime = avg(page_loading_seconds) by bin(eventDate, 1h)\n| make-series average_loadtime = avg(page_loading_seconds) on eventDate from _startTime to _endTime+4h step 1h\n| extend forecast = series_decompose_forecast(average_loadtime, 4)\n| render timechart",
+      "id": "ac0449c8-24a6-4329-b0c2-cc83364b0bd2",
+      "usedVariables": [
+        "_endTime",
+        "_startTime"
+      ]
+    },
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "f5407575-ab44-4c34-9fbc-121c76f93795"
+      },
+      "text": "//Clicks, Impressions, CTR\nlet imp =  SilverImpressions\n| where eventDate  between (_startTime.._endTime)\n| extend dateOnly = substring(todatetime(eventDate).tostring(), 0, 10)\n| summarize imp_count = count() by dateOnly;\nlet clck = SilverClicks\n| where eventDate  between (_startTime.._endTime)\n| extend dateOnly = substring(todatetime(eventDate).tostring(), 0, 10)\n| summarize clck_count = count() by dateOnly;\nimp\n| join clck on $left.dateOnly == $right.dateOnly\n| project selected_date = dateOnly , impressions = imp_count , clicks = clck_count, CTR = clck_count * 100 / imp_count",
+      "id": "f629a3ce-5218-47b6-9217-768085914be3",
+      "usedVariables": [
+        "_endTime",
+        "_startTime"
+      ]
+    },
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "f5407575-ab44-4c34-9fbc-121c76f93795"
+      },
+      "text": "//Clicks, Impressions, CTR\nlet imp =  SilverImpressions\n| where eventDate  between (_startTime.._endTime)\n| extend dateOnly = substring(todatetime(eventDate).tostring(), 0, 10)\n| summarize imp_count = count() by dateOnly;\nlet clck = SilverClicks\n| where eventDate  between (_startTime.._endTime)\n| extend dateOnly = substring(todatetime(eventDate).tostring(), 0, 10)\n| summarize clck_count = count() by dateOnly;\nimp\n| join clck on $left.dateOnly == $right.dateOnly\n| project selected_date = dateOnly , impressions = imp_count , clicks = clck_count, CTR = clck_count * 100 / imp_count",
+      "id": "52a3faa3-820c-4152-8881-117c6f83a6e3",
+      "usedVariables": [
+        "_endTime",
+        "_startTime"
+      ]
+    },
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "f5407575-ab44-4c34-9fbc-121c76f93795"
+      },
+      "text": "//Clicks, Impressions, CTR\nlet imp =  SilverImpressions\n| where eventDate  between (_startTime.._endTime)\n| extend dateOnly = substring(todatetime(eventDate).tostring(), 0, 10)\n| summarize imp_count = count() by dateOnly;\nlet clck = SilverClicks\n| where eventDate  between (_startTime.._endTime)\n| extend dateOnly = substring(todatetime(eventDate).tostring(), 0, 10)\n| summarize clck_count = count() by dateOnly;\nimp\n| join clck on $left.dateOnly == $right.dateOnly\n| project selected_date = dateOnly , impressions = imp_count , clicks = clck_count, CTR = clck_count * 100 / imp_count",
+      "id": "74816b6b-649c-42e8-81ee-f1997bec26c7",
+      "usedVariables": [
+        "_endTime",
+        "_startTime"
+      ]
+    },
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "f5407575-ab44-4c34-9fbc-121c76f93795"
+      },
+      "text": "//Avg Page Load Time Anomalies\nSilverImpressions\n| where eventDate   between (_startTime.._endTime)\n| make-series average_loadtime = avg(page_loading_seconds) on eventDate from _startTime to _endTime+4h step 1h\n| extend anomalies = series_decompose_anomalies(average_loadtime)\n| render anomalychart\n",
+      "id": "f0238562-12ba-4076-9b9f-298b47d8bb55",
+      "usedVariables": [
+        "_endTime",
+        "_startTime"
+      ]
+    },
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "f5407575-ab44-4c34-9fbc-121c76f93795"
+      },
+      "text": "//Strong Anomalies\nSilverImpressions\n| where eventDate between (_startTime.._endTime)\n| make-series average_loadtime = avg(page_loading_seconds) on eventDate from _startTime to _endTime+4h step 1h\n| extend anomalies = series_decompose_anomalies(average_loadtime,2.5)\n| mv-expand eventDate, average_loadtime, anomalies\n| where anomalies <> 0\n| project-away anomalies",
+      "id": "eccb5eed-eb40-4a17-9add-5d4c9fcb6e3c",
+      "usedVariables": [
+        "_endTime",
+        "_startTime"
+      ]
+    }
+  ]
+}
