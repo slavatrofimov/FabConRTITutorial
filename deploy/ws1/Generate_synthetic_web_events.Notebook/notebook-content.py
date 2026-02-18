@@ -31,6 +31,7 @@ from azure.eventhub import EventHubProducerClient, EventData
 import os
 import socket
 import random
+import sempy.fabric as fabric
 
 from random import randrange
 
@@ -60,7 +61,7 @@ eventHubConnString = get_eventstream_connection_string(
         eventstream_source_name="WebEventsCustomSource"
     )
 
-producer_events = EventHubProducerClient.from_connection_string(conn_str=eventHubConnString, eventhub_name=eventHubNameevents)
+producer_events = EventHubProducerClient.from_connection_string(conn_str=eventHubConnString)
 
 hostname = socket.gethostname()
 
