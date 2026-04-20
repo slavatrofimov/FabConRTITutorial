@@ -1152,7 +1152,7 @@ At this point you've completed the lab, so you may stop running the notebook.
 ![alt text](assets/_0e5f9cfb-de2e-42fd-aff4-73fba140a5d3.jpg)
 
 # Continue your learning
-
+- [Fabric Jumpstart - curated catalog of high-quality Fabric solutions that you can deploy to your Fabric workspace](https://jumpstart.fabric.microsoft.com/)
 - [Implement a Real-Time Intelligence Solution with Microsoft Fabric](https://aka.ms/realtimeskill/)
 - [Real-Time Intelligence documentation in Microsoft Fabric](https://aka.ms/fabric-docs-rta)
 - [Microsoft Fabric Updates Blog](https://aka.ms/fabricblog)
