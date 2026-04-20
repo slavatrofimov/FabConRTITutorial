@@ -1,0 +1,22 @@
+{
+  "queryset": {
+    "version": "1.0.0",
+    "dataSources": [
+      {
+        "id": "8a0fc14b-379a-419a-973a-0ba2a87fda3a",
+        "clusterUri": "https://trd-nx8842p04m832sbjmh.z1.kusto.fabric.microsoft.com",
+        "type": "Fabric",
+        "databaseItemId": "4d58e5f3-7fcc-464b-a9f9-401c6faa77a5",
+        "databaseItemName": "WebEvents_EH"
+      }
+    ],
+    "tabs": [
+      {
+        "id": "a6f80a3b-87fc-4278-8d07-d5891fb08ee6",
+        "content": ".execute database script <|\n//SILVER LAYER\n.create table SilverClicks (\n    eventType:string, \n    eventID:string, \n    eventDate:datetime, \n    productId:long, \n    userAgent:dynamic, \n    device:string, \n    ip_address:string, \n    referer:dynamic, \n    page_loading_seconds:real, \n    clickType:string, \n    clickPathTitle:string, \n    clickPathUrl:string\n)\n//\n.create table SilverImpressions (\n    eventType:string, \n    eventID:string, \n    eventDate:datetime, \n    productId:long, \n    userAgent:dynamic, \n    device:string, \n    ip_address:string, \n    page_loading_seconds:real, \n    relatedProductCategory:string, \n    relatedProductId:string, \n    relatedProductName:string\n)\n// use update policies to transform data during Ingestion\n.create-or-alter function with (folder=\"Bronze to Silver Transformations\") expandClickpath()\n{\nBronzeClicks\n| mv-expand extraPayload\n| evaluate bag_unpack(extraPayload)\n| project \n    eventType, \n    eventID, \n    todatetime(eventDate), \n    productId, \n    userAgent, \n    device, \n    ip_address, \n    referer, \n    toreal(page_loading_seconds), \n    clickType = clickType, \n    clickPathTitle = ['title'], \n    clickPathUrl = url\n}\n//\n.alter table SilverClicks policy update @'[{\"Source\": \"BronzeClicks\", \"Query\": \"expandClickpath\", \"IsEnabled\" : true, \"IsTransactional\": false }]'\n//\n.create-or-alter function with (folder=\"Bronze to Silver Transformations\") expandRelatedProducts()\n{\nBronzeImpressions\n| mv-expand extraPayload\n| evaluate bag_unpack(extraPayload)\n| project \n    eventType, \n    eventID, \n    todatetime(eventDate), \n    productId, \n    userAgent, \n    device, \n    ip_address, \n    toreal(page_loading_seconds), \n    relatedProductCategory, \n    relatedProductId, \n    relatedProductName\n}\n//\n.alter table SilverImpressions policy update @'[{\"Source\": \"BronzeImpressions\", \"Query\": \"expandRelatedProducts\", \"IsEnabled\" : true, \"IsTransactional\": false }]'\n//\n.create-or-alter function with (docstring = \"Social Media Campaign Clickstream\", folder = \"Gold Views\") SocialMediaCampaignClickstream()\n{\nSilverClicks\n| extend CampaignType = tostring(referer.campaignType)\n| extend Platform = tostring(userAgent.platform)\n| extend Browser = tostring(userAgent.browser)\n| extend RefererUrl = tostring(referer.url)\n| extend AdTitle = tostring(referer.adTitle)\n| where CampaignType in (\"facebook\", \"twitter\", \"instagram\", \"pinterest\")\n| project-away userAgent, referer\n| project-reorder CampaignType\n}\n//\n.create-or-alter function with (docstring = \"Search Media Campaign Clickstream\", folder = \"Gold Views\") SearchMediaCampaignClickstream()\n{\nSilverClicks\n| extend CampaignType = tostring(referer.campaignType)\n| extend Platform = tostring(userAgent.platform)\n| extend Browser = tostring(userAgent.browser)\n| extend RefererUrl = tostring(referer.url)\n| extend AdTitle = tostring(referer.adTitle)\n| where CampaignType in (\"google\", \"bing\")\n| project-away userAgent, referer\n| project-reorder CampaignType\n}\n//\n.create-or-alter function with (docstring = \"Email Campaign Clickstream\", folder = \"Gold Views\") EmailCampaignClickstream()\n{\nSilverClicks\n| extend CampaignType = tostring(referer.campaignType)\n| extend Platform = tostring(userAgent.platform)\n| extend Browser = tostring(userAgent.browser)\n| extend RefererUrl = tostring(referer.url)\n| extend EmailId = tostring(referer.emailId)\n| where CampaignType in (\"email\")\n| project-away userAgent, referer\n| project-reorder CampaignType\n}",
+        "title": "Tab",
+        "dataSourceId": "8a0fc14b-379a-419a-973a-0ba2a87fda3a"
+      }
+    ]
+  }
+}
